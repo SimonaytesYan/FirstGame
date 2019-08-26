@@ -5,7 +5,7 @@ export class laser {
         this.cur_x = cur_x;
         this.cur_y = cur_y;
 
-        this.r = 5;
+        this.r = 7;
         this.dist_x = dist_x;
         this.dist_y = dist_y;
 
@@ -17,7 +17,7 @@ export class laser {
         this.sin = this.deltaY / Math.sqrt(this.deltaX ** 2 + this.deltaY ** 2);
         this.cos = this.deltaX / Math.sqrt(this.deltaX ** 2 + this.deltaY ** 2);
 
-        this.shag = 15;
+        this.shag = 9;
         this.ready = false
     }
 
@@ -40,14 +40,14 @@ export class laser {
 
         const graphics = new PIXI.Graphics();
 
-        graphics.beginFill(0xFF0000);
+        graphics.beginFill(0xDC143C);
         graphics.drawCircle(this.cur_x, this.cur_y, this.r);
         graphics.endFill();
 
-        if (Math.abs(this.deltaX) <= Math.abs(this.startx - this.cur_x) && Math.abs(this.deltaY) <= Math.abs(this.starty - this.cur_y)) {
+        if (Math.abs(this.deltaX) <= Math.abs(this.startx - this.cur_x) && Math.abs(this.deltaY) <= Math.abs(this.starty - this.cur_y)
+            || Math.sqrt((this.startx - this.cur_x)**2 + (this.starty - this.cur_y)**2 ) > 650 ){
             this.ready = true
         }
-        console.log(this.ready)
         return graphics
     }
 }

@@ -61,8 +61,16 @@ function setCanvasSize() {
     canvas.style.width = window.innerWidth + 'px';
     canvas.style.height = window.innerHeight + 'px';
     renderer.resize(window.innerWidth, window.innerHeight);
-    world.player.x = window.innerWidth / 2;
-    world.player.y = window.innerHeight / 2;
+    //world.player.x = window.innerWidth / 2;
+    //world.player.y = window.innerHeight / 2;
+    if (world.oldWidth === 0 && world.oldHight ===0)
+    {
+        world.player.x
+        world.player.y
+    }
+    world.oldWidth = window.innerWidth
+    world.oldHight = window.innerHeight
+
 }
 
 window.onresize = (ev) => {
